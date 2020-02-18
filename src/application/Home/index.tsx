@@ -1,5 +1,7 @@
 import React from 'react';
 import {renderRoutes, RouteConfig} from 'react-router-config';
+import {Top} from './style'
+import Icon from '../../assets/icons/Icon'
 
 interface IHomeProps {
   route: RouteConfig
