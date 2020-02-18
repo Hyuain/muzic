@@ -2,15 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1bf2981f-9e5a-47c4-a8a7-cf40fad99db7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/application/Home/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/application/Rank/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/application/Recommend/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/application/Singers/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/routes/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/custom.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/global-style.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/icons/icons.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/icons/icons.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/icons/menu.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/application/Home/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/Home/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styled.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/Home/style.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,21 +38,24 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/application" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/assets/icons" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="ts.external.directory.path" value="C:\Users\Zhang\works\muzic\node_modules\typescript\lib" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Zhang\works\muzic\src\assets\icons" />
+      <recent name="C:\Users\Zhang\works\muzic" />
       <recent name="C:\Users\Zhang\works\muzic\src\application\Recommend" />
       <recent name="C:\Users\Zhang\works\muzic\src\application\Singers" />
       <recent name="C:\Users\Zhang\works\muzic\src\application\Rank" />
-      <recent name="C:\Users\Zhang\works\muzic\src\application\Home" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Zhang\works\muzic\src\assets\icons" />
       <recent name="C:\Users\Zhang\works\muzic\src\application" />
       <recent name="C:\Users\Zhang\works\muzic" />
     </key>
@@ -67,7 +71,7 @@
       <option name="presentableId" value="Default" />
       <updated>1582014705562</updated>
       <workItem from="1582014708577" duration="1749000" />
-      <workItem from="1582016469266" duration="5077000" />
+      <workItem from="1582016469266" duration="8653000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1582018704778</created>
@@ -76,11 +80,23 @@
       <option name="project" value="LOCAL" />
       <updated>1582018704779</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="使用 react-router-config 建立 route">
+      <created>1582025406497</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1582025406497</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+    <option name="exactExcludedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/src/assets/icons/icons.d.ts" />
+      </list>
+    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -94,18 +110,28 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="init" />
-    <option name="LAST_COMMIT_MESSAGE" value="init" />
+    <MESSAGE value="使用 react-router-config 建立 route" />
+    <option name="LAST_COMMIT_MESSAGE" value="使用 react-router-config 建立 route" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="459" y="236" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1582027335837">
+      <screen x="0" y="0" width="1445" height="864" />
+    </state>
+    <state x="459" y="236" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1445.864/872.-1080.1858.1080@0.0.1445.864" timestamp="1582027335837" />
+    <state x="421" y="35" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1582029017986">
+      <screen x="0" y="0" width="1445" height="864" />
+    </state>
+    <state x="421" y="35" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1445.864/872.-1080.1858.1080@0.0.1445.864" timestamp="1582029017986" />
     <state x="455" y="180" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1582015872697">
       <screen x="0" y="0" width="1445" height="864" />
     </state>
     <state x="455" y="180" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1445.864/872.-1080.1858.1080@0.0.1445.864" timestamp="1582015872697" />
-    <state x="330" y="26" key="CommitChangelistDialog2" timestamp="1582018703926">
+    <state x="330" y="26" key="CommitChangelistDialog2" timestamp="1582025405739">
       <screen x="0" y="0" width="1445" height="864" />
     </state>
-    <state x="330" y="26" key="CommitChangelistDialog2/0.0.1445.864/872.-1080.1858.1080@0.0.1445.864" timestamp="1582018703926" />
+    <state x="330" y="26" key="CommitChangelistDialog2/0.0.1445.864/872.-1080.1858.1080@0.0.1445.864" timestamp="1582025405739" />
     <state x="226" y="75" key="SettingsEditor" timestamp="1582016458930">
       <screen x="0" y="0" width="1445" height="864" />
     </state>

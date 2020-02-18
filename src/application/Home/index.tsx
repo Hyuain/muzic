@@ -9,6 +9,10 @@ const Home = (props: IHomeProps) => {
   const {route} = props;
   return (
     <div>
+      <Top>
+        hahah
+        <Icon.Menu className="icon"></Icon.Menu>
+      </Top>
       {renderRoutes(route.routes)}
     </div>
   );
