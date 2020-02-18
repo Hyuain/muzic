@@ -18,7 +18,7 @@ const noWrap = () => {
 };
 
 export default {
-  'theme-color': '#44439',
+  'theme-color': '#d44439',
   'theme-color-shadow': 'rgba (212, 68, 57, .5)',
   'font-color-light': '#f1f1f1',
   'font-color-desc': '#2E3030',

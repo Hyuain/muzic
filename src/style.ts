@@ -17,7 +17,6 @@ export const GlobalStyle = createGlobalStyle`
   margin: 0;
   padding: 0;
   border: 0;
-  font-size: 100%;
   font: inherit;
   vertical-align: baseline;
  }
@@ -39,7 +38,6 @@ export const GlobalStyle = createGlobalStyle`
   quotes: none;
  }
  blockquote:before, blockquote:after,  q:before, q:after {
-  content: '';
   content: none;
   }
  table {
@@ -49,5 +47,11 @@ export const GlobalStyle = createGlobalStyle`
  a {
   text-decoration: none;
   color: #fff;
+ }
+ .icon {
+   width: 1em; height: 1em;
+   vertical-align: -0.15em;
+   fill: currentColor;
+   overflow: hidden;
  }
 `;
