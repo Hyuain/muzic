@@ -12,8 +12,9 @@ const Home = (props: IHomeProps) => {
   return (
     <div>
       <Top>
-        hahah
-        <Icon.Menu className="icon"></Icon.Menu>
+        <Icon.Menu className="icon menu"></Icon.Menu>
+        <span className="title">Muzic</span>
+        <Icon.Search className="icon search"></Icon.Search>
       </Top>
       {renderRoutes(route.routes)}
     </div>

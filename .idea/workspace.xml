@@ -2,12 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1bf2981f-9e5a-47c4-a8a7-cf40fad99db7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/custom.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/icons/Icon.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/icons/Icon.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/icons/menu.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/Zhang.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/icons/search.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/application/Home/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/Home/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/icons/Icon.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/icons/Icon.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/icons/Icon.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,7 +67,7 @@
       <option name="presentableId" value="Default" />
       <updated>1582014705562</updated>
       <workItem from="1582014708577" duration="1749000" />
-      <workItem from="1582016469266" duration="8910000" />
+      <workItem from="1582016469266" duration="9269000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1582018704778</created>
@@ -90,7 +90,14 @@
       <option name="project" value="LOCAL" />
       <updated>1582029189399</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="解决引入 svg 时的类型问题">
+      <created>1582029214637</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1582029214637</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -117,7 +124,8 @@
     <MESSAGE value="init" />
     <MESSAGE value="使用 react-router-config 建立 route" />
     <MESSAGE value="准备全局样式和 Home 的样式" />
-    <option name="LAST_COMMIT_MESSAGE" value="准备全局样式和 Home 的样式" />
+    <MESSAGE value="解决引入 svg 时的类型问题" />
+    <option name="LAST_COMMIT_MESSAGE" value="解决引入 svg 时的类型问题" />
   </component>
   <component name="WindowStateProjectService">
     <state x="459" y="236" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1582027335837">
@@ -132,10 +140,10 @@
       <screen x="0" y="0" width="1445" height="864" />
     </state>
     <state x="455" y="180" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1445.864/872.-1080.1858.1080@0.0.1445.864" timestamp="1582015872697" />
-    <state x="330" y="26" key="CommitChangelistDialog2" timestamp="1582029188232">
+    <state x="330" y="26" key="CommitChangelistDialog2" timestamp="1582029213970">
       <screen x="0" y="0" width="1445" height="864" />
     </state>
-    <state x="330" y="26" key="CommitChangelistDialog2/0.0.1445.864/872.-1080.1858.1080@0.0.1445.864" timestamp="1582029188232" />
+    <state x="330" y="26" key="CommitChangelistDialog2/0.0.1445.864/872.-1080.1858.1080@0.0.1445.864" timestamp="1582029213970" />
     <state x="226" y="75" key="SettingsEditor" timestamp="1582016458930">
       <screen x="0" y="0" width="1445" height="864" />
     </state>
