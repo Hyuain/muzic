@@ -15,3 +15,9 @@ interface IRecommendItem {
   playCount: number
   name: string
 }
+
+interface ISingerItem {
+  picUrl: string
+  name: string
+  accountId: number
+}
