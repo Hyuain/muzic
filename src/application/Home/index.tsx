@@ -17,9 +17,9 @@ const Home = (props: IHomeProps) => {
   return (
     <div>
       <Top>
-        <Icon.Menu className="icon menu"></Icon.Menu>
+        <Icon.Menu className="icon menu"/>
         <span className="title">Muzic</span>
-        <Icon.Search className="icon search"></Icon.Search>
+        <Icon.Search className="icon search"/>
       </Top>
       <Tab>
         <NavLink to="/recommend" activeClassName="selected"><TabItem><span>推荐</span></TabItem></NavLink>

@@ -36,7 +36,7 @@ const Slider = (props: ISliderProps) => {
               return (
                 <div className="swiper-slide" key={slider.imageUrl + Math.random()}>
                   <div className="img-wrapper">
-                    <img src={slider.imageUrl} width="100%" height="100%" alt="推荐"/>
+                    <img src={slider.imageUrl} alt="推荐"/>
                   </div>
                 </div>
               );
