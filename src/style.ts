@@ -54,4 +54,7 @@ export const GlobalStyle = createGlobalStyle`
    fill: currentColor;
    overflow: hidden;
  }
+ *, *:before, *:after{
+  box-sizing: border-box;
+ }
 `;
