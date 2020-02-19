@@ -65,7 +65,7 @@ HorizontalNav.defaultProps = {
 const List = styled.div`
   display: flex;
   align-items: center;
-  height: 30px;
+  padding: 4px 0;
   overflow: hidden;
   >span:first-of-type {
     display: block;
