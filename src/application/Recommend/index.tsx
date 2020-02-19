@@ -11,12 +11,14 @@ import {Content} from './style';
 interface IRecommendProps {
   bannerList: any
   recommendList: any
+  enterLoading: boolean
   getBannerDataDispatch: () => void
   getRecommendListDataDispatch: () => void
 }
 
 const Recommend = (props: IRecommendProps) => {
   const {bannerList, recommendList} = props;
+  const {enterLoading} = props;
   const {getBannerDataDispatch, getRecommendListDataDispatch} = props;
 
   useEffect(() => {
@@ -36,14 +38,15 @@ const Recommend = (props: IRecommendProps) => {
           <RecommendList recommendList={recommendListJS}></RecommendList>
         </div>
       </Scroll>
-      <Loading></Loading>
+      {enterLoading ? <Loading></Loading> : null}
     </Content>
   );
 };
 
 const mapStateToProps = (state: any) => ({
   bannerList: state.getIn(['recommend', 'bannerList']),
-  recommendList: state.getIn(['recommend', 'recommendList'])
+  recommendList: state.getIn(['recommend', 'recommendList']),
+  enterLoading: state.getIn(['recommend', 'enterLoading'])
 });
 
 const mapDispatchToProps = (dispatch: any) => {
