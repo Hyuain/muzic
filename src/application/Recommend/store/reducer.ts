@@ -6,8 +6,12 @@ const defaultState = fromJS({
   recommendList: []
 });
 
-// TODO
-export default (state = defaultState, action: any) => {
+interface IAction {
+  type: string
+  data: any
+}
+
+export default (state = defaultState, action: IAction) => {
   switch (action.type) {
     case actionTypes.CHANGE_BANNER:
       return state.set('bannerList', action.data);
