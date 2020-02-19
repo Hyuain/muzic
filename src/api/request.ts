@@ -7,3 +7,11 @@ export const getBannerRequest = () => {
 export const getRecommendListRequest = () => {
   return axiosInstance.get('/personalized');
 };
+
+export const getHotSingerListRequest = (count: string) => {
+  return axiosInstance.get(`/top/artist?offset=${count}`);
+};
+
+export const getSingerListRequest = (category: string, alpha: string, count: string) => {
+  return axiosInstance.get(`/artist/list?cat=${category}&initial=${alpha.toLowerCase()}&offset=${count}`);
+};
