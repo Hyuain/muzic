@@ -1,6 +1,8 @@
 import React from 'react';
 import Slider from '../../components/Slider';
 import RecommendList from '../../components/RecommendList';
+import Scroll from '../../baseUI/Scroll';
+import {Content} from './style';
 
 interface IRecommendProps {
 
@@ -21,10 +23,14 @@ const Recommend = () => {
   });
 
   return (
-    <div>
-      <Slider bannerList={bannerList}></Slider>
-      <RecommendList recommendList={recommendList}></RecommendList>
-    </div>
+    <Content>
+      <Scroll>
+        <div>
+          <Slider bannerList={bannerList}></Slider>
+          <RecommendList recommendList={recommendList}></RecommendList>
+        </div>
+      </Scroll>
+    </Content>
   );
 };
 
