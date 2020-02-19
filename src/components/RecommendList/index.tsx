@@ -8,12 +8,7 @@ import {
 } from './style';
 
 interface IRecommendListProps {
-  recommendList: {
-    id: number
-    picUrl: string
-    playCount: number
-    name: string
-  }[]
+  recommendList: IRecommendItem[]
 }
 
 const RecommendList = (props: IRecommendListProps) => {

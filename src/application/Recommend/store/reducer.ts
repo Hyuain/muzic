@@ -1,15 +1,16 @@
 import * as actionTypes from './constants';
 import {fromJS} from 'immutable';
 
+interface IAction {
+  type: string
+  data: any
+}
+
 const defaultState = fromJS({
   bannerList: [],
   recommendList: []
 });
 
-interface IAction {
-  type: string
-  data: any
-}
 
 export default (state = defaultState, action: IAction) => {
   switch (action.type) {

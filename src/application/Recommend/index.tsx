@@ -1,37 +1,57 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import Slider from '../../components/Slider';
 import RecommendList from '../../components/RecommendList';
+import {connect} from 'react-redux';
+import * as actionTypes from './store/actionCreators';
 import Scroll from '../../baseUI/Scroll';
 import {Content} from './style';
 
 interface IRecommendProps {
-
+  bannerList: any
+  recommendList: any
+  getBannerDataDispatch: () => void
+  getRecommendListDataDispatch: () => void
 }
 
-const Recommend = () => {
-  const bannerList = [1, 2, 3, 4].map(item => {
-    return {imageUrl: 'http://p1.music.126.net/ZYLJ2oZn74yUz5x8NBGkVA==/109951164331219056.jpg'};
-  });
+const Recommend = (props: IRecommendProps) => {
+  const {bannerList, recommendList} = props;
+  const {getBannerDataDispatch, getRecommendListDataDispatch} = props;
 
-  const recommendList = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(item => {
-    return {
-      id: 1,
-      picUrl: 'https://p1.music.126.net/fhmefjUfMD-8qtj3JKeHbA==/18999560928537533.jpg',
-      playCount: 1231123,
-      name: '等等、哈哈、自修复、无上限、答复'
-    };
-  });
+  useEffect(() => {
+    getBannerDataDispatch();
+    getRecommendListDataDispatch();
+    // eslint-disable-next-line
+  }, []);
+
+  const bannerListJS: IBannerItem[] = bannerList ? bannerList.toJS() : [];
+  const recommendListJS: IRecommendItem[] = recommendList ? recommendList.toJS() : [];
 
   return (
     <Content>
       <Scroll>
         <div>
-          <Slider bannerList={bannerList}></Slider>
-          <RecommendList recommendList={recommendList}></RecommendList>
+          <Slider bannerList={bannerListJS}></Slider>
+          <RecommendList recommendList={recommendListJS}></RecommendList>
         </div>
       </Scroll>
     </Content>
   );
 };
 
-export default React.memo(Recommend);
+const mapStateToProps = (state: any) => ({
+  bannerList: state.getIn(['recommend', 'bannerList']),
+  recommendList: state.getIn(['recommend', 'recommendList'])
+});
+
+const mapDispatchToProps = (dispatch: any) => {
+  return {
+    getBannerDataDispatch() {
+      dispatch(actionTypes.getBannerList());
+    },
+    getRecommendListDataDispatch() {
+      dispatch(actionTypes.getRecommendList());
+    }
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(React.memo(Recommend));

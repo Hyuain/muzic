@@ -5,11 +5,13 @@ declare module '*.svg' {
   export default src;
 }
 
-interface ServerData {
-  banners: any
-  result: any
+interface IBannerItem {
+  imageUrl: string
 }
 
-interface ServerResponse {
-  data: ServerData
+interface IRecommendItem {
+  id: number
+  picUrl: string
+  playCount: number
+  name: string
 }

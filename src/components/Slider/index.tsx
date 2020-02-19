@@ -4,7 +4,7 @@ import 'swiper/css/swiper.css';
 import {SliderContainer} from './style';
 
 interface ISliderProps {
-  bannerList: { imageUrl: string }[]
+  bannerList: IBannerItem[]
 }
 
 const Slider = (props: ISliderProps) => {
@@ -24,7 +24,6 @@ const Slider = (props: ISliderProps) => {
       setSliderSwiper(sliderSwiper);
     }
   }, [bannerList.length, sliderSwiper]);
-
 
   return (
     <SliderContainer>
