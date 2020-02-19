@@ -4,6 +4,7 @@ import RecommendList from '../../components/RecommendList';
 import {connect} from 'react-redux';
 import * as actionTypes from './store/actionCreators';
 import Scroll from '../../baseUI/Scroll';
+import Loading from '../../baseUI/Loading';
 import {forceCheck} from 'react-lazyload';
 import {Content} from './style';
 
@@ -35,6 +36,7 @@ const Recommend = (props: IRecommendProps) => {
           <RecommendList recommendList={recommendListJS}></RecommendList>
         </div>
       </Scroll>
+      <Loading></Loading>
     </Content>
   );
 };
