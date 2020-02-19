@@ -1,5 +1,11 @@
 import React from 'react';
 import Icon from '../../assets/icons/Icon';
+import {getCount} from '../../api/utils';
+import {
+  ListWrapper,
+  List,
+  ListItem
+} from './style';
 
 interface IRecommendListProps {
   recommendList: {
@@ -12,30 +18,30 @@ interface IRecommendListProps {
 
 const RecommendList = (props: IRecommendListProps) => {
   return (
-    <div>
+    <ListWrapper>
       <h1 className="title">推荐歌单</h1>
-      <div>
+      <List>
         {
           props.recommendList.map((item, index) => {
             return (
-              <div key={item.id + index}>
+              <ListItem key={item.id + index}>
                 <div className="img-wrapper">
                   <div className="decorate"></div>
                   <img src={item.picUrl + '?param=300x300'} alt="推荐歌曲"/>
                   <div className="play-count-wrapper">
                     <Icon.HeadPhone className="icon headphone"/>
-                    <span className="play-count">{item.playCount}</span>
+                    <span className="play-count">{getCount(item.playCount)}</span>
                   </div>
                 </div>
                 <div className="description">
                   {item.name}
                 </div>
-              </div>
+              </ListItem>
             );
           })
         }
-      </div>
-    </div>
+      </List>
+    </ListWrapper>
   );
 };
 
