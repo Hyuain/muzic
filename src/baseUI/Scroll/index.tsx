@@ -2,12 +2,6 @@ import React, {forwardRef, FunctionComponent, useEffect, useImperativeHandle, us
 import BScroll from 'better-scroll';
 import styled from 'styled-components';
 
-const ScrollContainer = styled.div`
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-`;
-
 interface IScrollProps {
   direction?: 'vertical' | 'horizontal'
   click?: boolean
@@ -104,6 +98,12 @@ const Scroll: FunctionComponent<IScrollProps> = forwardRef((props, ref) => {
     </ScrollContainer>
   );
 });
+
+const ScrollContainer = styled.div`
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+`;
 
 Scroll.defaultProps = {
   direction: 'vertical',
