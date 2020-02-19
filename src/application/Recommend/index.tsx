@@ -4,6 +4,7 @@ import RecommendList from '../../components/RecommendList';
 import {connect} from 'react-redux';
 import * as actionTypes from './store/actionCreators';
 import Scroll from '../../baseUI/Scroll';
+import {forceCheck} from 'react-lazyload';
 import {Content} from './style';
 
 interface IRecommendProps {
@@ -28,7 +29,7 @@ const Recommend = (props: IRecommendProps) => {
 
   return (
     <Content>
-      <Scroll>
+      <Scroll onScroll={forceCheck}>
         <div>
           <Slider bannerList={bannerListJS}></Slider>
           <RecommendList recommendList={recommendListJS}></RecommendList>

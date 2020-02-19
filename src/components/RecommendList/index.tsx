@@ -1,6 +1,7 @@
 import React from 'react';
 import Icon from '../../assets/icons/Icon';
 import {getCount} from '../../api/utils';
+import LazyLoad from 'react-lazyload';
 import {
   ListWrapper,
   List,
@@ -22,7 +23,9 @@ const RecommendList = (props: IRecommendListProps) => {
               <ListItem key={item.id + index}>
                 <div className="img-wrapper">
                   <div className="decorate"></div>
-                  <img src={item.picUrl + '?param=300x300'} alt="推荐歌曲" width="100%" height="100%"/>
+                  <LazyLoad placeholder={<img width="100%" height="100%" src={require('./music.png')} alt="music"/>}>
+                    <img src={item.picUrl + '?param=300x300'} alt="推荐歌曲" width="100%" height="100%"/>
+                  </LazyLoad>
                   <div className="play-count-wrapper">
                     <Icon.HeadPhone className="icon headphone"/>
                     <span className="play-count">{getCount(item.playCount)}</span>
