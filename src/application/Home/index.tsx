@@ -31,4 +31,4 @@ const Home = (props: IHomeProps) => {
   );
 };
 
-export default Home;
+export default React.memo(Home);
