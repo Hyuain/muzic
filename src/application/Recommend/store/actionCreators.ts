@@ -2,12 +2,12 @@ import * as actionTypes from './constants';
 import {fromJS} from 'immutable';
 import {getBannerRequest, getRecommendListRequest} from '../../../api/request';
 
-export const changeBannerList = (data: any) => ({
+export const changeBannerList = (data: IBannerItem[]) => ({
   type: actionTypes.CHANGE_BANNER,
   data: fromJS(data)
 });
 
-export const changeRecommendList = (data: any) => ({
+export const changeRecommendList = (data: IRecommendItem[]) => ({
   type: actionTypes.CHANGE_RECOMMEND_LIST,
   data: fromJS(data)
 });
@@ -28,7 +28,6 @@ export const getBannerList = () => {
 };
 
 export const getRecommendList = () => {
-  // TODO
   return (dispatch: any) => {
     getRecommendListRequest().then((data: any) => {
       dispatch(changeRecommendList(data.result));

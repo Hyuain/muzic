@@ -21,3 +21,18 @@ interface ISingerItem {
   name: string
   accountId: number
 }
+
+interface IRankItem {
+  tracks: ITrackItem[]
+  coverImgId: number
+  coverImgUrl: string
+  updateFrequency: string
+  first: string
+  second: string
+}
+
+interface ITrackItem {
+  first: string
+  second: string
+}
+

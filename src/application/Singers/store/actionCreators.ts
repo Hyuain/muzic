@@ -5,7 +5,7 @@ import {
 import * as actionTypes from './constants';
 import {fromJS} from 'immutable';
 
-export const changeSingerList = (data: any) => ({
+export const changeSingerList = (data: ISingerItem[]) => ({
   type: actionTypes.CHANGE_SINGER_LIST,
   data: fromJS(data)
 });

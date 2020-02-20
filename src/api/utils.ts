@@ -21,3 +21,11 @@ export const debounce = (func: any, delay: number) => {
     }, delay);
   };
 };
+
+export const filterIndex = (rankList: IRankItem[]) => {
+  for (let i = 0; i < rankList.length - 1; i++) {
+    if (rankList[i].tracks.length && !rankList[i + 1].tracks.length) {
+      return i + 1;
+    }
+  }
+};
