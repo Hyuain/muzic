@@ -7,6 +7,7 @@ import Scroll from '../../baseUI/Scroll';
 import Loading from '../../baseUI/Loading';
 import {forceCheck} from 'react-lazyload';
 import {Content} from './style';
+import {renderRoutes, RouteConfig} from 'react-router-config';
 
 interface IRecommendProps {
   bannerList: any
@@ -14,6 +15,7 @@ interface IRecommendProps {
   enterLoading: boolean
   getBannerDataDispatch: () => void
   getRecommendListDataDispatch: () => void
+  route: RouteConfig
 }
 
 const Recommend = (props: IRecommendProps) => {
@@ -43,6 +45,7 @@ const Recommend = (props: IRecommendProps) => {
         </div>
       </Scroll>
       {enterLoading ? <Loading/> : null}
+      {renderRoutes(props.route.routes)}
     </Content>
   );
 };

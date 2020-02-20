@@ -1,8 +1,11 @@
 import React from 'react';
+import {Container} from './style';
 
 const Album = () => {
+  console.log('run');
   return (
-    <div>Album</div>
+    <Container>
+    </Container>
   )
 };
 
