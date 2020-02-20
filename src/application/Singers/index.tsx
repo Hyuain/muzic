@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useContext, useEffect} from 'react';
 import {connect} from 'react-redux';
 import * as actions from './store/actionCreators';
 import LazyLoad, {forceCheck} from 'react-lazyload';
@@ -7,6 +7,7 @@ import HorizontalNav from '../../baseUI/HorizontalNav';
 import Scroll from '../../baseUI/Scroll';
 import Loading from '../../baseUI/Loading';
 import {NavContainer, List, ListItem, ListContainer} from './style';
+import {CategoryDataContext, CHANGE_ALPHA, CHANGE_CATEGORY} from './Data';
 
 interface ISingersProps {
   singerList: any
@@ -42,8 +43,8 @@ const renderSingerList = (singerList: ISingerItem[]) => {
 };
 
 const Singers = (props: ISingersProps) => {
-  const [category, setCategory] = useState<string>('');
-  const [alpha, setAlpha] = useState<string>('');
+  const {state, dispatch} = useContext<{ state: any, dispatch: any }>(CategoryDataContext);
+  const {category, alpha}: { category: string, alpha: string } = state.toJS();
 
   const {singerList, pullUpLoading, pullDownLoading, pageCount, enterLoading} = props;
   const {getHotSingerDispatch, updateDispatch, pullUpRefreshDispatch, pullDownRefreshDispatch} = props;
@@ -56,11 +57,11 @@ const Singers = (props: ISingersProps) => {
   const singerListJS: ISingerItem[] = singerList ? singerList.toJS() : [];
 
   const handleUpdateCategory = (val: string) => {
-    setCategory(val);
+    dispatch({type: CHANGE_CATEGORY, data: val});
     updateDispatch(val, alpha);
   };
   const handleUpdateAlpha = (val: string) => {
-    setAlpha(val);
+    dispatch({type: CHANGE_ALPHA, data: val});
     updateDispatch(category, val);
   };
 
