@@ -1,4 +1,5 @@
 import React from 'react';
+import {withRouter, RouteComponentProps} from 'react-router-dom';
 import Icon from '../../assets/icons/Icon';
 import {getCount} from '../../api/utils';
 import LazyLoad from 'react-lazyload';
@@ -8,11 +9,16 @@ import {
   ListItem
 } from './style';
 
-interface IRecommendListProps {
+interface IRecommendListProps extends RouteComponentProps {
   recommendList: IRecommendItem[]
 }
 
-const RecommendList = (props: IRecommendListProps) => {
+const RecommendList: React.FunctionComponent<IRecommendListProps> = (props) => {
+
+  const enterDetail = (id: number) => {
+    props.history.push(`/recommend/${id}`);
+  };
+
   return (
     <ListWrapper>
       <h1 className="title">推荐歌单</h1>
@@ -20,7 +26,7 @@ const RecommendList = (props: IRecommendListProps) => {
         {
           props.recommendList.map((item, index) => {
             return (
-              <ListItem key={item.id + index}>
+              <ListItem key={item.id} onClick={() => enterDetail(item.id)}>
                 <div className="img-wrapper">
                   <div className="decorate"></div>
                   <LazyLoad placeholder={<img width="100%" height="100%" src={require('./music.png')} alt="music"/>}>
@@ -43,4 +49,4 @@ const RecommendList = (props: IRecommendListProps) => {
   );
 };
 
-export default React.memo(RecommendList);
+export default React.memo(withRouter(RecommendList));
