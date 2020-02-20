@@ -4,6 +4,7 @@ import * as actions from './store/actionCreators';
 import HorizontalNav from '../../baseUI/HorizontalNav';
 import {alphaTypes, categoryTypes} from '../../api/config';
 import Scroll from '../../baseUI/Scroll';
+import Loading from '../../baseUI/Loading';
 import {NavContainer, List, ListItem, ListContainer} from './style';
 
 interface ISingersProps {
@@ -11,6 +12,7 @@ interface ISingersProps {
   pullUpLoading: boolean
   pullDownLoading: boolean
   pageCount: number
+  enterLoading: boolean
   getHotSingerDispatch: () => void
   updateDispatch: (category: string, alpha: string) => void
   pullUpRefreshDispatch: (category: string, alpha: string, count: number) => void
@@ -40,7 +42,7 @@ const Singers = (props: ISingersProps) => {
   const [category, setCategory] = useState<string>('');
   const [alpha, setAlpha] = useState<string>('');
 
-  const {singerList, pullUpLoading, pullDownLoading, pageCount} = props;
+  const {singerList, pullUpLoading, pullDownLoading, pageCount, enterLoading} = props;
   const {getHotSingerDispatch, updateDispatch, pullUpRefreshDispatch, pullDownRefreshDispatch} = props;
 
   useEffect(() => {
@@ -89,6 +91,7 @@ const Singers = (props: ISingersProps) => {
           pullDownLoading={pullDownLoading}>
           {renderSingerList(singerListJS)}
         </Scroll>
+        {enterLoading ? <Loading/> : null}
       </ListContainer>
     </div>
   );

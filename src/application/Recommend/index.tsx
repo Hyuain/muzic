@@ -42,7 +42,7 @@ const Recommend = (props: IRecommendProps) => {
           <RecommendList recommendList={recommendListJS}></RecommendList>
         </div>
       </Scroll>
-      {enterLoading ? <Loading></Loading> : null}
+      {enterLoading ? <Loading/> : null}
     </Content>
   );
 };
