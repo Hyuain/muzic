@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 import Slider from '../../components/Slider';
 import RecommendList from '../../components/RecommendList';
 import {connect} from 'react-redux';
-import * as actionTypes from './store/actionCreators';
+import * as actions from './store/actionCreators';
 import Scroll from '../../baseUI/Scroll';
 import Loading from '../../baseUI/Loading';
 import {forceCheck} from 'react-lazyload';
@@ -56,10 +56,10 @@ const mapStateToProps = (state: any) => ({
 const mapDispatchToProps = (dispatch: any) => {
   return {
     getBannerDataDispatch() {
-      dispatch(actionTypes.getBannerList());
+      dispatch(actions.getBannerList());
     },
     getRecommendListDataDispatch() {
-      dispatch(actionTypes.getRecommendList());
+      dispatch(actions.getRecommendList());
     }
   };
 };

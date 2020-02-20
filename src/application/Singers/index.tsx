@@ -1,22 +1,18 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
+import {connect} from 'react-redux';
+import * as actions from './store/actionCreators';
 import HorizontalNav from '../../baseUI/HorizontalNav';
 import {alphaTypes, categoryTypes} from '../../api/config';
 import Scroll from '../../baseUI/Scroll';
 import {NavContainer, List, ListItem, ListContainer} from './style';
 
 interface ISingersProps {
-
+  singerList: any
+  getHotSingerDispatch: () => void
+  updateDispatch: (category: string, alpha: string) => void
 }
 
-const singerList: ISingerItem[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map(item => {
-  return {
-    picUrl: 'https://p2.music.126.net/uTwOm8AEFFX_BYHvfvFcmQ==/109951164232057952.jpg',
-    name: '啊哈哈哈哈',
-    accountId: 277313426
-  };
-});
-
-const renderSingerList = () => {
+const renderSingerList = (singerList: ISingerItem[]) => {
   return (
     <List>
       {
@@ -35,15 +31,26 @@ const renderSingerList = () => {
   );
 };
 
-const Singers = () => {
+const Singers = (props: ISingersProps) => {
   const [category, setCategory] = useState<string>('');
   const [alpha, setAlpha] = useState<string>('');
 
+  const {singerList} = props;
+  const {getHotSingerDispatch, updateDispatch} = props;
+
+  useEffect(() => {
+    getHotSingerDispatch();
+  }, []);
+
+  const singerListJS: ISingerItem[] = singerList ? singerList.toJS() : [];
+
   const handleUpdateCategory = (val: string) => {
     setCategory(val);
+    updateDispatch(val, alpha);
   };
   const handleUpdateAlpha = (val: string) => {
     setAlpha(val);
+    updateDispatch(category, val);
   };
 
   return (
@@ -62,11 +69,50 @@ const Singers = () => {
       </NavContainer>
       <ListContainer>
         <Scroll>
-          {renderSingerList()}
+          {renderSingerList(singerListJS)}
         </Scroll>
       </ListContainer>
     </div>
   );
 };
 
-export default React.memo(Singers);
+const mapStateToProps = (state: any) => ({
+  singerList: state.getIn(['singers', 'singerList']),
+  enterLoading: state.getIn(['singers', 'enterLoading']),
+  pullUpLoading: state.getIn(['singers', 'pullUpLoading']),
+  pullDownLoading: state.getIn(['singers', 'pullDownLoading']),
+  pageCount: state.getIn(['singers', 'pageCount']),
+});
+
+const mapDispatchToProps = (dispatch: any) => {
+  return {
+    getHotSingerDispatch() {
+      dispatch(actions.getHotSingerList());
+    },
+    updateDispatch(category: string, alpha: string) {
+      dispatch(actions.changePageCount(0));
+      dispatch(actions.changeEnterLoading(true));
+      dispatch(actions.getSingerList(category, alpha));
+    },
+    pullUpRefreshDispatch(category: string, alpha: string, count: number) {
+      dispatch(actions.changePullUpLoading(true));
+      dispatch(actions.changePageCount(count + 1));
+      if (category === '' && alpha === '') {
+        dispatch(actions.refreshMoreHotSingerList());
+      } else {
+        dispatch(actions.refreshMoreSingerList(category, alpha));
+      }
+    },
+    pullDownRefreshDispatch(category: string, alpha: string) {
+      dispatch(actions.changePullDownLoading(true));
+      dispatch(actions.changePageCount(0));
+      if (category === '' && alpha === '') {
+        dispatch(actions.getHotSingerList());
+      } else {
+        dispatch(actions.getSingerList(category, alpha));
+      }
+    }
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(React.memo(Singers));
