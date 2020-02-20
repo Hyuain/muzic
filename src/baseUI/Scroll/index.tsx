@@ -1,5 +1,6 @@
-import React, {forwardRef, FunctionComponent, useEffect, useImperativeHandle, useRef, useState} from 'react';
+import React, {forwardRef, FunctionComponent, useEffect, useImperativeHandle, useMemo, useRef, useState} from 'react';
 import BScroll from 'better-scroll';
+import {debounce} from '../../api/utils';
 import styled from 'styled-components';
 import Loading from '../Loading';
 import LoadingV2 from '../LoadingV2';
@@ -22,6 +23,14 @@ const Scroll: FunctionComponent<IScrollProps> = forwardRef((props, ref) => {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const {direction, click, refresh, bounceTop, bounceBottom, pullUpLoading, pullDownLoading} = props;
   const {pullUp, pullDown, onScroll} = props;
+
+  let pullUpDebounce = useMemo(() => {
+    return debounce(pullUp, 300);
+  }, [pullUp]);
+
+  let pullDownDebounce = useMemo(() => {
+    return debounce(pullDown, 300);
+  }, [pullDown]);
 
   useEffect(() => {
     if (scrollContainerRef.current) {
@@ -60,25 +69,25 @@ const Scroll: FunctionComponent<IScrollProps> = forwardRef((props, ref) => {
     if (!bScroll || !pullUp) return;
     bScroll.on('scrollEnd', () => {
       if (bScroll.y <= bScroll.maxScrollY + 100) {
-        pullUp();
+        pullUpDebounce();
       }
     });
     return () => {
       bScroll.off('scrollEnd');
     };
-  }, [pullUp, bScroll]);
+  }, [pullUpDebounce, pullUp, bScroll]);
 
   useEffect(() => {
     if (!bScroll || !pullDown) return;
     bScroll.on('touchEnd', (scroll: BScroll) => {
       if (scroll.y > 50) {
-        pullDown();
+        pullDownDebounce();
       }
     });
     return () => {
       bScroll.off('touchEnd');
     };
-  });
+  }, [pullDownDebounce, pullDown, bScroll]);
 
   useImperativeHandle(ref, () => ({
     refresh() {
