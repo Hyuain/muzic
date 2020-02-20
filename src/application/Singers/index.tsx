@@ -1,8 +1,9 @@
 import React, {useEffect, useState} from 'react';
 import {connect} from 'react-redux';
 import * as actions from './store/actionCreators';
-import HorizontalNav from '../../baseUI/HorizontalNav';
+import LazyLoad, {forceCheck} from 'react-lazyload';
 import {alphaTypes, categoryTypes} from '../../api/config';
+import HorizontalNav from '../../baseUI/HorizontalNav';
 import Scroll from '../../baseUI/Scroll';
 import Loading from '../../baseUI/Loading';
 import {NavContainer, List, ListItem, ListContainer} from './style';
@@ -27,7 +28,9 @@ const renderSingerList = (singerList: ISingerItem[]) => {
           return (
             <ListItem key={item.accountId + '' + index}>
               <div className="img-wrapper">
-                <img src={`${item.picUrl}?param=300x300`} width="100%" height="100%" alt="歌手"/>
+                <LazyLoad placeholder={<img width="100%" height="100%" src={require('./singer.png')} alt="歌手"/>}>
+                  <img src={`${item.picUrl}?param=300x300`} width="100%" height="100%" alt="歌手"/>
+                </LazyLoad>
               </div>
               <span className="name">{item.name}</span>
             </ListItem>
@@ -88,7 +91,9 @@ const Singers = (props: ISingersProps) => {
           pullUp={handlePullUp}
           pullDown={handlePullDown}
           pullUpLoading={pullUpLoading}
-          pullDownLoading={pullDownLoading}>
+          pullDownLoading={pullDownLoading}
+          onScroll={forceCheck}
+        >
           {renderSingerList(singerListJS)}
         </Scroll>
         {enterLoading ? <Loading/> : null}
