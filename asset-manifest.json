@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.js": "/muzic/static/js/main.b68f64e1.chunk.js",
+    "main.js.map": "/muzic/static/js/main.b68f64e1.chunk.js.map",
+    "runtime-main.js": "/muzic/static/js/runtime-main.bf3b8203.js",
+    "runtime-main.js.map": "/muzic/static/js/runtime-main.bf3b8203.js.map",
+    "static/css/2.6bf38e3a.chunk.css": "/muzic/static/css/2.6bf38e3a.chunk.css",
+    "static/js/2.a0f43e28.chunk.js": "/muzic/static/js/2.a0f43e28.chunk.js",
+    "static/js/2.a0f43e28.chunk.js.map": "/muzic/static/js/2.a0f43e28.chunk.js.map",
+    "index.html": "/muzic/index.html",
+    "precache-manifest.017cd72ff53d8ae5be3f79185abff835.js": "/muzic/precache-manifest.017cd72ff53d8ae5be3f79185abff835.js",
+    "service-worker.js": "/muzic/service-worker.js",
+    "static/css/2.6bf38e3a.chunk.css.map": "/muzic/static/css/2.6bf38e3a.chunk.css.map",
+    "static/js/2.a0f43e28.chunk.js.LICENSE.txt": "/muzic/static/js/2.a0f43e28.chunk.js.LICENSE.txt",
+    "static/media/back.548323d8.svg": "/muzic/static/media/back.548323d8.svg",
+    "static/media/headphone.9003fe58.svg": "/muzic/static/media/headphone.9003fe58.svg",
+    "static/media/menu.bcaac69a.svg": "/muzic/static/media/menu.bcaac69a.svg",
+    "static/media/music.png": "/muzic/static/media/music.64444b39.png",
+    "static/media/search.26650879.svg": "/muzic/static/media/search.26650879.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.bf3b8203.js",
+    "static/css/2.6bf38e3a.chunk.css",
+    "static/js/2.a0f43e28.chunk.js",
+    "static/js/main.b68f64e1.chunk.js"
+  ]
+}
