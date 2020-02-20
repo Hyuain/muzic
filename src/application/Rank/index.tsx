@@ -3,6 +3,8 @@ import {getRankList} from './store';
 import {connect} from 'react-redux';
 import {filterIndex} from '../../api/utils';
 import Scroll from '../../baseUI/Scroll';
+import Loading from '../../baseUI/Loading';
+import {Container, Tracks, List, ListItem} from './style';
 
 interface IRankProps {
   rankList: any
@@ -12,34 +14,34 @@ interface IRankProps {
 
 const renderRankList = (list: IRankItem[], global: boolean) => {
   return (
-    <div>
+    <List globalRank={global}>
       {
         list.map((item) => {
           return (
-            <div key={item.coverImgUrl}>
+            <ListItem key={item.coverImgUrl} tracks={item.tracks}>
               <div className="img-wrapper">
                 <img src={item.coverImgUrl} width="100%" alt="榜单封面"/>
                 <div className="decorate"></div>
                 <span className="update-frequency">{item.updateFrequency}</span>
               </div>
               {item.tracks.length ? renderTracks(item.tracks) : null}
-            </div>
+            </ListItem>
           );
         })
       }
-    </div>
+    </List>
   );
 };
 
 const renderTracks = (tracks: ITrackItem[]) => {
   return (
-    <div>
+    <Tracks>
       {
         tracks.map((item, index) => {
           return <li key={index}>{index + 1}. {item.first} - {item.second}</li>;
         })
       }
-    </div>
+    </Tracks>
   );
 };
 
@@ -57,10 +59,10 @@ const Rank = (props: IRankProps) => {
     // eslint-disable-next-line
   }, []);
 
-  let displayStyle = loading ? {'display': 'none'} : {display: ''};
+  let displayStyle = loading ? {display: 'none'} : {display: ''};
 
   return (
-    <div>
+    <Container>
       <Scroll>
         <div>
           <h1 className="official" style={displayStyle}>官方榜</h1>
@@ -69,7 +71,8 @@ const Rank = (props: IRankProps) => {
           {renderRankList(globalList, true)}
         </div>
       </Scroll>
-    </div>
+      {loading ? <Loading/> : null}
+    </Container>
   );
 };
 
