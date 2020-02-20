@@ -1,9 +1,10 @@
 import axios from 'axios';
 
-export const baseUrl = 'http://192.168.2.193:3000';
+export const baseUrl = 'http://47.92.254.59:3000';
 
 const axiosInstance = axios.create({
   baseURL: baseUrl,
+  withCredentials: true
 });
 
 axiosInstance.interceptors.response.use(
