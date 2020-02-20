@@ -8,8 +8,13 @@ import {NavContainer, List, ListItem, ListContainer} from './style';
 
 interface ISingersProps {
   singerList: any
+  pullUpLoading: boolean
+  pullDownLoading: boolean
+  pageCount: number
   getHotSingerDispatch: () => void
   updateDispatch: (category: string, alpha: string) => void
+  pullUpRefreshDispatch: (category: string, alpha: string, count: number) => void
+  pullDownRefreshDispatch: (category: string, alpha: string) => void
 }
 
 const renderSingerList = (singerList: ISingerItem[]) => {
@@ -35,11 +40,12 @@ const Singers = (props: ISingersProps) => {
   const [category, setCategory] = useState<string>('');
   const [alpha, setAlpha] = useState<string>('');
 
-  const {singerList} = props;
-  const {getHotSingerDispatch, updateDispatch} = props;
+  const {singerList, pullUpLoading, pullDownLoading, pageCount} = props;
+  const {getHotSingerDispatch, updateDispatch, pullUpRefreshDispatch, pullDownRefreshDispatch} = props;
 
   useEffect(() => {
     getHotSingerDispatch();
+    // eslint-disable-next-line
   }, []);
 
   const singerListJS: ISingerItem[] = singerList ? singerList.toJS() : [];
@@ -51,6 +57,14 @@ const Singers = (props: ISingersProps) => {
   const handleUpdateAlpha = (val: string) => {
     setAlpha(val);
     updateDispatch(category, val);
+  };
+
+  const handlePullUp = () => {
+    pullUpRefreshDispatch(category, alpha, pageCount);
+  };
+
+  const handlePullDown = () => {
+    pullDownRefreshDispatch(category, alpha);
   };
 
   return (
@@ -68,7 +82,11 @@ const Singers = (props: ISingersProps) => {
           oldVal={alpha}/>
       </NavContainer>
       <ListContainer>
-        <Scroll>
+        <Scroll
+          pullUp={handlePullUp}
+          pullDown={handlePullDown}
+          pullUpLoading={pullUpLoading}
+          pullDownLoading={pullDownLoading}>
           {renderSingerList(singerListJS)}
         </Scroll>
       </ListContainer>
